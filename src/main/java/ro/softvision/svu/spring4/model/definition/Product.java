@@ -1,7 +1,10 @@
 package ro.softvision.svu.spring4.model.definition;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,5 +26,14 @@ public class Product extends BaseEntity {
 	@Setter
 	@ManyToOne
 	private Category category;
+
+	@Getter
+	@Setter
+	private Double price;
+
+	@Getter
+	@Setter
+	@OneToMany(mappedBy = "product")
+	private List<OrderItem> orders;
 
 }
